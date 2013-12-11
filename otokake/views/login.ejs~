@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page.title %></title>
+    <script src="/js/jquery-1.7.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+
+  <body>
+      <div class="container login">
+        <div class="row">
+          <div class="span4 offset4">
+            <h1><%= page.sysname %></h1>
+            <p>Welcome to <%= page.serifu %></p>
+            <div class="dialog login">
+              <div class="contents">
+
+                <form action="/login" method="post" class="well">
+                  <label>USERNAME:</label>
+                  <input type="text" name='name' name="id">
+                  <label>PASSWOED:</label>
+                  <input type="password" name="password">
+
+                  <div class="control-group">
+                    <input type="submit" value="login" class="btn">
+                  </div>
+                </form>
+
+              </div>
+            </div>
+            <!--ログイン失敗メッセージ-->
+            <% if (loginFailed == true) { %>
+               <p style="color:red">USERNAMEもしくはPASSWOEDに間違いがあります。<br></p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+
+
+  </body>
+</html>

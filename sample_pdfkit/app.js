@@ -2,7 +2,6 @@
  * Module dependencies.
  */
 
-
 var PDFDocument = require('pdfkit');
 var doc = new PDFDocument;
 
@@ -18,6 +17,45 @@ doc.text('日本語', 0, 150);
 doc.text('縦', 0, 200);
 doc.text('書', 0, 212);
 doc.text('き', 0, 224);
+
+doc.moveDown();
+
+var loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in...';
+doc.text(loremIpsum,100,300, {columns:2});
+
+doc.moveDown();
+
+var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar diam eu ' +
+        'dolor bibendum et varius diam laoreet. Morbi eget rutrum enim. Sed enim ipsum, ' +
+        'posuere nec hendrerit non, commodo quis tortor. Fusce id nisl augue. Fusce at ' +
+        'lectus ut libero vehicula imperdiet.';
+ 
+doc.text('This text is left aligned. ' + lorem, 100, 350, 
+    {width: 410,
+    align: 'left'});
+    
+doc.moveDown();
+ 
+doc.text( 'This text is centered. ' + lorem,
+    {width: 410,
+    align: 'center'});
+    
+doc.moveDown();
+
+var tategaki = '縦 書 き ＆ 空 白 に'+ ' 　 '+'な る ？';
+doc.text(tategaki,100,500,
+    {width: 1,
+    align: 'left',
+    lineGap:-4});
+
+doc.moveDown();
+
+var tategaki = 'ラ ッ ピ ン グ で 簡 単 に 縦 書 き ！';
+doc.text(tategaki,120,500,
+    {width: 1,
+    align: 'left',
+    lineGap:-4});
+
 
 //doc.moveDown(0.5);
 
