@@ -9,8 +9,6 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
-var pdf = require('./node_modules/pdf.js/node-demo');
-
 var app = express();
 
 // all environments
@@ -36,8 +34,6 @@ app.get('/', routes.index);
 app.get('/login', routes.login);
 app.post('/login', routes.login.post);
 app.get('/users', user.list);
-
-app.get('/pdf',pdf.make_pdf);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

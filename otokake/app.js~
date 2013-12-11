@@ -37,7 +37,7 @@ app.get('/login', routes.login);
 app.post('/login', routes.login.post);
 app.get('/users', user.list);
 
-app.get('/pdf',pdf.node-demo);
+app.get('/pdf',pdf.make_pdf);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
