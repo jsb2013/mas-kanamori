@@ -9,6 +9,7 @@ doc.font('Courier');
 doc.fontSize(10);
 doc.text('Hello world!',0,50);
 
+/*
 doc.registerFont('jp', './migu-1p-regular.ttf', 'jp');
 doc.font('jp');
 doc.text('しふとじす!', 0, 100);
@@ -17,6 +18,9 @@ doc.text('日本語', 0, 150);
 doc.text('縦', 0, 200);
 doc.text('書', 0, 212);
 doc.text('き', 0, 224);
+
+doc.textVertical('どうなる？', 0, 250);
+
 
 doc.moveDown();
 
@@ -55,7 +59,7 @@ doc.text(tategaki,120,500,
     {width: 1,
     align: 'left',
     lineGap:-4});
-
+*/
 
 //doc.moveDown(0.5);
 
