@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="jp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,8 +24,8 @@
       <div class="container login">
         <div class="row">
           <div class="span4 offset4">
-            <h1><%= page.sysname %></h1>
-            <p>Welcome to <%= page.serifu %></p>
+            <h1>お客様管理（仮）</h1>
+            <p>Jsb企画　簡単管理サービスへようこそ！</p>
             <div class="dialog login">
               <div class="contents">
 

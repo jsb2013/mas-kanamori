@@ -1,12 +1,57 @@
+/* ナビゲーションTOPバーの分だけコンテンツを下にずらす */
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding-top: 70px;
 }
 
+/* ナビゲーションTOPバー */
+.navbar-fixed-top{
+  background-color: #F2F2F2;
+  border-color:#BDBDBD;
+}
+
+/* ナビゲーションTOPバーのロゴ文字 */
+.navbar-inverse .navbar-brand {
+  color: #000000;
+}
+
+/* ナビゲーションTOPバーの右メニュー文字 */
+.collapse > ul > .dropdown > a {
+  color: #000000;
+}
+
+/* ナビゲーションTOPバーの右メニュー展開時の下地 */
+.collapse > ul > .dropdown > .dropdown-toggle:visited{
+  background-color: #F2F2F2
+}
+
+.col > .nav > li > a{
+  border-color:#BDBDBD;
+  background-color: #F2F2F2;
+  color: #000000;
+}
+
+.col > .nav > li > a:hover{
+  border-color:#BDBDBD;
+  background-color: #F2F2F2;
+  color: #000000;
+}
+
+
+/* 汎用文字
 a {
-  color: #00B7FF;
-}
+  color: #000000;
+}*/
 
+
+
+/* 以下テスト用 */
 .col-md-1 {
   background-color: #f2dede
 }
+.col-md-2 {
+  background-color: #dff0d8
+}
+.col-md-4 {
+  background-color: #d9edf7
+}
+

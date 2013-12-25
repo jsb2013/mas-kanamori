@@ -4,9 +4,16 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #000000;
 }
 
 .col-md-1 {
   background-color: #f2dede
 }
+.col-md-2 {
+  background-color: #dff0d8
+}
+.col-md-4 {
+  background-color: #d9edf7
+}
+
