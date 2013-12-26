@@ -20,6 +20,24 @@
     <!-- icons from glyphicons -->
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet" />
  
+    <!-- zabuto calender -->
+    <script src="/js/zabuto_calendar.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/zabuto_calendar.css">
+    <script type="application/javascript">
+    $(document).ready(function () {
+      $("#my-calendar").zabuto_calendar({
+        cell_border: true,
+        today: true,
+        weekstartson: 0,
+        ajax: {
+          url: "schedule.json",
+          modal: true
+        }
+      });
+    });
+    </script>
+
+
 
   </head>
 
@@ -29,7 +47,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">お客様管理サービス</a>
+          <a class="navbar-brand" href="#">檀家様管理サービス</a>
         </div>
 
         <div class="collapse navbar-collapse">
@@ -52,56 +70,71 @@
     <!-- メインコンテンツ -->
     <div class="container">
       <div class="row">
+
+        <!-- TOP画面左 -->
         <div class="col col-sm-3">
 
-          <img src="/img/login_photo.png" width="212">
-          <p></p>
+          <!-- TOP画面ユーザー画像 -->
+          <img src="/img/tyo-denji.jpg" class="img-responsive under-margin20" alt="Responsive image">
 
+          <!-- TOP画面ユーザーメニュー -->
           <ul id="nav-tab" class="nav nav-pills nav-stacked">
             <li><a href="#dashboard"><span class="glyphicon glyphicon-home"></span> ダッシュボード</a></li>
-            <li><a href="#entries"><span class="glyphicon glyphicon-user"></span> お客様管理</a></li>
-            <li><a href="#categories"><span class="glyphicon glyphicon-calendar"></span> スケジュール管理</a></li>
-            <li><a href="#users"><span class="glyphicon glyphicon-pencil"></span> 物品管理</a></li>
+            <li><a href="#entries"><span class="glyphicon glyphicon-user"></span> 檀家管理</a></li>
+            <li><a href="#categories"><span class="glyphicon glyphicon-list-alt"></span> スケジュール管理</a></li>
+            <li><a href="#items"><span class="glyphicon glyphicon-pencil"></span> 物品管理</a></li>
             <li><a href="#reports"><span class="glyphicon glyphicon-file"></span> 帳票印刷</a></li>
           </ul>
         </div>
+
+        <!-- TOP画面右 -->
         <div class="col col-sm-9">
           <div class="tab-content">
-            <div id="dashboard" class="tab-pane active">
+            <!-- TOP画面右-検索 -->
+            <form class="search-inline form-inline right top-margin20";>
+              <div class="form-group">
+                <label class="sr-only">キーワード</label>
+                <input class="form-control input-sm" type="text" name="keyword" placeholder="キーワード">
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm">検索</button>
+            </form>
+
+            <!-- TOP画面右-ダッシュボード -->
+            <div id="dashboard" class="tab-pane active top-margin20">
               <div class="panel panel-default">
                 <div class="panel-heading"><h3 class="panel-title">ダッシュボード</h3></div>
-                <div class="panel-body">
-                  <!-- 略 -->
-                </div>
+                  <div id="my-calendar"></div>
               </div>
             </div>
-            <div id="entries" class="tab-pane">
+
+            <!-- TOP画面右-檀家管理 -->
+            <div id="entries" class="tab-pane cpontents-r">
               <div class="panel panel-default">
-                <div class="panel-heading"><h3 class="panel-title">記事管理画面</h3></div>
+                <div class="panel-heading"><h3 class="panel-title">檀家管理</h3></div>
                 <div class="panel-body">
                   <!--  -->
                 </div>
               </div>
             </div>
-            <div id="categories" class="tab-pane">
+            <div id="categories" class="tab-pane cpontents-r">
               <div class="panel panel-default">
-                <div class="panel-heading"><h3 class="panel-title">カテゴリー管理画面</h3></div>
+                <div class="panel-heading"><h3 class="panel-title">スケジュール管理</h3></div>
                 <div class="panel-body">
                   <!-- 略 -->
                 </div>
               </div>
             </div>
-            <div id="users" class="tab-pane">
+            <div id="items" class="tab-pane cpontents-r">
               <div class="panel panel-default">
-                <div class="panel-heading"><h3 class="panel-title">ユーザー管理画面</h3></div>
+                <div class="panel-heading"><h3 class="panel-title">物品管理</h3></div>
                 <div class="panel-body">
                   <!-- 略 -->
                 </div>
               </div>
             </div>
-            <div id="reports" class="tab-pane">
+            <div id="reports" class="tab-pane cpontents-r">
               <div class="panel panel-default">
-                <div class="panel-heading"><h3 class="panel-title">レポート</h3></div>
+                <div class="panel-heading"><h3 class="panel-title">帳票印刷</h3></div>
                 <div class="panel-body">
                   <!-- 略 -->
                 </div>
@@ -111,8 +144,8 @@
         </div>
       </div>
     </div>
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- タブ切り替えスクリプト -->
     <script>
       $('#nav-tab a').on('click', function (e) { 
         var $this = $(this);

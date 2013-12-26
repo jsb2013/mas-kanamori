@@ -1,29 +1,36 @@
-/* ナビゲーションTOPバーの分だけコンテンツを下にずらす */
+/* ログイン画面のタイトル文字 */
+.loginTitle{
+  font-size:32px;
+  color:#000000;
+}
+
+/* ナビゲーションバーの縦幅分だけコンテンツを下にずらす */
 body {
   padding-top: 70px;
 }
 
-/* ナビゲーションTOPバー */
+/* ナビゲーションバーの色 */
 .navbar-fixed-top{
   background-color: #F2F2F2;
   border-color:#BDBDBD;
 }
 
-/* ナビゲーションTOPバーのロゴ文字 */
+/* ナビゲーションバーのロゴ文字 */
 .navbar-inverse .navbar-brand {
   color: #000000;
 }
 
-/* ナビゲーションTOPバーの右メニュー文字 */
+/* ナビゲーションバーの右メニュー文字 */
 .collapse > ul > .dropdown > a {
   color: #000000;
 }
 
-/* ナビゲーションTOPバーの右メニュー展開時の下地 */
+/* ナビゲーションバーの右メニュー展開時の下地 */
 .collapse > ul > .dropdown > .dropdown-toggle:visited{
   background-color: #F2F2F2
 }
 
+/* TOP画面左メニューのデザイン */
 .col > .nav > li > a{
   border-color:#BDBDBD;
   background-color: #F2F2F2;
@@ -37,11 +44,36 @@ body {
 }
 
 
-/* 汎用文字
-a {
-  color: #000000;
-}*/
+/* zabudoカレンダーが枠に収まるように */
+div.zabuto_calendar {
+    padding: 10px;
+}
 
+
+/* 汎用 */
+.right{
+    text-align:right;
+}
+
+.btn-primary{
+  border-color:#BDBDBD;
+  background-color: #F2F2F2;
+  color: #000000;
+}
+
+.btn-primary:hover{
+  border-color:#BDBDBD;
+  background-color: #BDBDBD;
+  color: #000000;
+}
+
+.top-margin20{
+  padding-top: 20px;
+}
+
+.under-margin20{
+  padding-bottom: 20px;
+}
 
 
 /* 以下テスト用 */

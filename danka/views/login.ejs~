@@ -11,7 +11,7 @@
     <!-- Bootstrap core CSS -->
     <script src="/js/jquery-1.10.2.min.js"></script>
     <script src="/js/bs2.3.2/bootstrap.min.js"></script>
-    <link rel='stylesheet' href='/css/bs2.3.2/bootstrap.min.css' />
+    <link rel='stylesheet' href='/css/bs2.3.2/bootstrap.css' />
 
     <link rel='stylesheet' href='/css/style.css' />
 
@@ -24,7 +24,7 @@
       <div class="container login">
         <div class="row">
           <div class="span4 offset4">
-            <h1>お客様管理（仮）</h1>
+            <a class ="loginTitle">簡単 檀家管理</a>
             <p>Jsb企画　簡単管理サービスへようこそ！</p>
             <div class="dialog login">
               <div class="contents">
