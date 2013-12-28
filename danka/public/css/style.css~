@@ -1,13 +1,4 @@
-/* ログイン画面のタイトル文字 */
-.loginTitle{
-  font-size:32px;
-  color:#000000;
-}
-
-/* ナビゲーションバーの縦幅分だけコンテンツを下にずらす */
-body {
-  padding-top: 70px;
-}
+/*** 個別指定 ***/
 
 /* ナビゲーションバーの色 */
 .navbar-fixed-top{
@@ -35,18 +26,15 @@ body {
   border-color:#BDBDBD;
   background-color: #F2F2F2;
   color: #000000;
+  border:solid 1px;
+  border-color:#BDBDBD;
 }
 
 .col > .nav > li > a:hover{
   border-color:#BDBDBD;
   background-color: #BDBDBD;
   color: #000000;
-}
-
-
-/* TOP画面右コンテンツは少し下にずらす */
-.cpontents-r{
-  padding-top: 30px;
+  border-color:#BDBDBD;
 }
 
 /* zabudoカレンダーが枠に収まるように */
@@ -55,6 +43,108 @@ div.zabuto_calendar {
 }
 
 
+
+/*** リストビュー ***/
+.table-bordered {
+border: 1px solid #dddddd;
+border-collapse: separate;
+border-left: 0;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+.table {
+width: 100%;
+margin-bottom: 20px;
+background-color: transparent;
+border-collapse: collapse;
+border-spacing: 0;
+display: table;
+}
+
+.widget.widget-table .table {
+margin-bottom: 0;
+border: none;
+}
+
+.widget.widget-table .widget-content {
+padding: 0;
+}
+
+.widget .widget-header + .widget-content {
+border-top: none;
+-webkit-border-top-left-radius: 0;
+-webkit-border-top-right-radius: 0;
+-moz-border-radius-topleft: 0;
+-moz-border-radius-topright: 0;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+}
+
+.widget .widget-content {
+padding: 20px 15px 15px;
+background: #FFF;
+border: 1px solid #D5D5D5;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+}
+
+
+thead {
+display: table-header-group;
+vertical-align: middle;
+border-color: inherit;
+}
+
+.widget .widget-header h3 {
+top: 2px;
+position: relative;
+left: 10px;
+display: inline-block;
+margin-right: 3em;
+font-size: 14px;
+font-weight: 600;
+color: #555;
+line-height: 18px;
+text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.widget .widget-header [class^="icon-"], .widget .widget-header [class*=" icon-"] {
+display: inline-block;
+margin-left: 13px;
+margin-right: -2px;
+font-size: 16px;
+color: #555;
+vertical-align: middle;
+}
+
+/*** 汎用 ***/
+.title{
+  font-size:32px;
+  color:#000000;
+}
+
+.right{
+    text-align:right;
+}
+
+.top-margin20{
+  padding-top: 20px;
+}
+
+.top-margin70{
+  padding-top: 70px;
+}
+
+.under-margin20{
+  padding-bottom: 20px;
+}
+
+
+
+/*** bootstrap用オーバーラップ ***/
 .btn-primary{
   border-color:#BDBDBD;
   background-color: #F2F2F2;
@@ -65,30 +155,5 @@ div.zabuto_calendar {
   border-color:#BDBDBD;
   background-color: #BDBDBD;
   color: #000000;
-}
-
-.top-margin20{
-  padding-top: 20px;
-}
-
-.under-margin20{
-  padding-bottom: 20px;
-}
-
-/* 汎用 */
-.right{
-    text-align:right;
-}
-
-
-/* 以下テスト用 */
-.col-md-1 {
-  background-color: #f2dede
-}
-.col-md-2 {
-  background-color: #dff0d8
-}
-.col-md-4 {
-  background-color: #d9edf7
 }
 

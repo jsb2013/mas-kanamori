@@ -2353,13 +2353,10 @@ fieldset[disabled] .btn-default.active {
   border-color: #357ebd;
 }
 
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
+
 .open .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #3276b1;
+  background-color:red;
   border-color: #285e8e;
 }
 
@@ -2497,7 +2494,7 @@ fieldset[disabled] .btn-danger.active {
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
   color: #ffffff;
-  background-color: red;
+  background-color: #47a447;
   border-color: #398439;
 }
 
