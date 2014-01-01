@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <!-- Custom styles for this template -->
+    <link rel='stylesheet' href='/css/haraikomi.css' media="screen,print" />
+
+    <title>払込取扱票</title>
+  </head>
+
+  <body>
+
+    <!--ご依頼人の人数でループ -->
+    <% for(var i=0; i<page.goiraiMei.length; i++) {%>
+
+      <!-- 印刷コンテンツ -->
+      <div style="position: relative;">
+
+        <!-- 帳票画像(郵送窓＋払込票) -->
+        <div style="position:relative; top:150mm; left: 0mm;">
+          <img src="/img/haraikomi_hyou.jpg" width="100%">
+        </div>
+
+        <!-- 送付状 -->
+        <div style="position: absolute; top: 40mm; left: 10mm;">
+          <a>好きな挨拶を入れる。</a>
+        </div>
+
+        <!-- 加入者名 -->
+        <div style="position: absolute; top: 52mm; left: 20mm;">
+          <a><%= page.kanyusyaMei[i] %></a>
+        </div>
+
+        <!-- 通信欄 -->
+        <div style="position: absolute; top: 73mm; left: 20mm;">
+          <a2><%= page.tusinRan[i] %></a>
+        </div>
+
+        <!-- ご依頼人_名 -->
+        <div style="position: absolute; top: 93mm; left: 20mm;">
+          <a2><%= page.goiraiMei[i] %></a>
+        </div>
+
+        <!-- 改行 -->
+        <div class="page-breaker"></div>
+
+      </div>
+
+    <% } %>
+
+
+  </body>
+</html>
+
