@@ -3,13 +3,9 @@
  * GET home page.
  */
 
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
-};
-
-
 // 払込取扱票の処理を行う
-exports.haraikomi = function (req, res) {
+exports.index = function (req, res) {
+  //テストデータ。本番は配列を渡せばOK。印刷数はgoiraiMeiの配列数に依存(キー)。
   var kouzaNo1 = ['55555','55555','55555'];
   var kouzaNo2 = ['1','1','1'];
   var kouzaNo3 = ['7777777','7777777','7777777'];
@@ -23,9 +19,6 @@ exports.haraikomi = function (req, res) {
   var goiraiJusyo2 = ['品川サウスヒルズ３０１号','','']
   var goiraiMei = ['金森 雅人','山下 修史','宮本 武蔵'];
   var goiraiTel = ['090-4xxx-xxxx','03-37xx-xxxx','046-xxx-xxxx'];
-
-
-
 
   // GETリクエストに対する処理
   res.render('haraikomi', {

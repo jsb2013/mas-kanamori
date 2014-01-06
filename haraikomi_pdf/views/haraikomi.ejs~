@@ -27,9 +27,24 @@
           <img src="/img/haraikomi_hyou.jpg" width=99%;>
         </div>
 
-        <!-- 送付宛名 -->
+        <!-- 封筒窓_郵便番号 -->
         <div class="text" style="top: 10mm; left: 10mm;">
-          <atena>ここに住所を入れる。枠は画像で用意(未)</atena>
+          <atena><%= page.goiraiYubin[i] %></atena>
+        </div>
+
+        <!-- 封筒窓_住所1 -->
+        <div class="text" style="top: 15mm; left: 10mm;">
+          <atena><%= page.goiraiJusyo1[i] %></atena>
+        </div>
+
+        <!-- 封筒窓_住所2 -->
+        <div class="text" style="top: 20mm; left: 10mm;">
+          <atena><%= page.goiraiJusyo2[i] %></atena>
+        </div>
+
+        <!-- 封筒窓_宛名 -->
+        <div class="text" style="top: 20mm; left: 10mm;">
+          <atena><%= page.goiraiMei[i] %>様</atena>
         </div>
 
         <!-- 送付状 -->
@@ -55,7 +70,6 @@
         <!-- 金額 -->
         <div class="text" style="top: 197mm; left: 85mm;">
           <INPUT type="text" class="kingakuTxBx" readonly value="<%= page.kingaku[i] %>" name="hoge">
-
         </div>
 
         <!-- 料金 -->
