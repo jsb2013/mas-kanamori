@@ -43,7 +43,7 @@
         </div>
 
         <!-- 封筒窓_宛名 -->
-        <div class="text" style="top: 20mm; left: 10mm;">
+        <div class="text" style="top: 30mm; left: 10mm;">
           <atena><%= page.goiraiMei[i] %>様</atena>
         </div>
 
@@ -68,7 +68,7 @@
         </div>
 
         <!-- 金額 -->
-        <div class="text" style="top: 197mm; left: 85mm;">
+        <div class="text" style="top: 197mm; left: 83mm;">
           <INPUT type="text" class="kingakuTxBx" readonly value="<%= page.kingaku[i] %>" name="hoge">
         </div>
 
@@ -118,7 +118,7 @@
         </div>
 
         <!-- 受領_金額 -->
-        <div class="text" style="top: 229mm; left: 142mm;">
+        <div class="text" style="top: 229mm; left: 139mm;">
           <INPUT type="text" class="kingakuTxBx" readonly value="<%= page.kingaku[i] %>" name="hoge">
         </div>
 
