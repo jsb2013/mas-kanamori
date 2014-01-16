@@ -77,7 +77,7 @@
         </div>-->
 
         <div class="textKingakuPosition">
-          <table style="border-style:none" bgcolor="#afeeee" width="200px">
+          <table style="border-style:none" width="200px">
 	          <tr>
 		          <td class="ketafont" text-align="right"><%= page.kingaku[i] %></td>
 	          </tr>
@@ -129,9 +129,17 @@
           <iraiJusyo><%= page.goiraiTel[i] %></iraiJusyo>
         </div>
 
-        <!-- 受領_金額（表示位置はcssで指定） -->
-        <div class="textGoiraiKingakuPosition">
+        <!-- 受領_金額 -->
+        <!--<div class="textGoiraiKingakuPosition">
           <INPUT type="text" class="kingakuTxBx" readonly value="<%= page.kingaku[i] %>" name="hoge">
+        </div>-->
+
+        <div class="textGoiraiKingakuPosition">
+          <table style="border-style:none" width="200px">
+	          <tr>
+		          <td class="ketafont" text-align="right"><%= page.kingaku[i] %></td>
+	          </tr>
+          </table>
         </div>
 
         <!-- 受領_ご依頼人_名 -->

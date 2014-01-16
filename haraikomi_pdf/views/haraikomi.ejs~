@@ -57,7 +57,7 @@
         </div>
 
         <!-- 口座番号1 -->
-        <div class="text" style="top: 197mm; left: 21mm;">
+        <div class="text" style="top: 197mm; left: 20mm;">
           <kouzaNo1 class="ketafont"><%= page.kouzaNo1[i] %></kouzaNo1>
         </div>
 
@@ -77,7 +77,7 @@
         </div>-->
 
         <div class="textKingakuPosition">
-          <table style="border-style:none" bgcolor="#afeeee" width="200px">
+          <table style="border-style:none" width="200px">
 	          <tr>
 		          <td class="ketafont" text-align="right"><%= page.kingaku[i] %></td>
 	          </tr>
