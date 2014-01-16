@@ -123,14 +123,14 @@ iraiName {
 /* win-ie用 */
 .win.ie .ketafont {
   font-size: 5mm;
-  letter-spacing: 0.41em;
+  letter-spacing: 0.42em;
   font-family:sans-serif;
 }
 
 /* win-chrome用 */
-.win.ie .ketafont {
+.win.chrome .ketafont {
   font-size: 5mm;
-  letter-spacing: 0.41em;
+  letter-spacing: 0.42em;
   font-family:sans-serif;
 }
 
@@ -146,7 +146,7 @@ iraiName {
 .win.ie .textKingakuPosition {
   position: absolute;
   top: 196mm;
-  left: 114mm;
+  left: 84mm;
 }
 
 .win.ie .textGoiraiKingakuPosition {
