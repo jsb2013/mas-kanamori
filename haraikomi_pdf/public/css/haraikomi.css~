@@ -28,32 +28,6 @@ body > div {
   position: absolute;
 }
 
-/* chrome用 */
-.chrome .textKingakuPosition {
-  position: absolute;
-  top: 197mm;
-  left: 83mm;
-}
-
-.chrome .textGoiraiKingakuPosition {
-  position: absolute;
-  top: 229mm;
-  left: 140mm;
-}
-
-/* firefox用 */
-.gecko .textKingakuPosition {
-  position: absolute;
-  top: 197mm;
-  left: 30mm;
-}
-
-.gecko .textGoiraiKingakuPosition {
-  position: absolute;
-  top: 229mm;
-  left: 87mm;
-}
-
 .page-breaker {
   page-break-before: always;
   page-break-inside: avoid;
@@ -143,6 +117,32 @@ iraiName {
   font-size: 4mm;
   font-family:'Lucida Grande',
   'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',Meiryo, メイリオ, sans-serif;
+}
+
+/* chrome用位置調整 */
+.chrome .textKingakuPosition {
+  position: absolute;
+  top: 197mm;
+  left: 115mm;
+}
+
+.chrome .textGoiraiKingakuPosition {
+  position: absolute;
+  top: 229mm;
+  left: 140mm;
+}
+
+/* firefox用位置調整 */
+.gecko .textKingakuPosition {
+  position: absolute;
+  top: 197mm;
+  left: 30mm;
+}
+
+.gecko .textGoiraiKingakuPosition {
+  position: absolute;
+  top: 229mm;
+  left: 87mm;
 }
 
  wkhtmltopdf -B 0 -L 0 -R 0 -T 0 http://localhost:3000/ harai.pdf

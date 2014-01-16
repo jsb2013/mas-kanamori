@@ -72,8 +72,16 @@
         </div>
 
         <!-- 金額 -->
-        <div class="textKingakuPosition">
+        <!--<div class="textKingakuPosition">
           <INPUT type="text" class="kingakuTxBx" readonly value="<%= page.kingaku[i] %>" name="hoge">
+        </div>-->
+
+        <div class="textKingakuPosition">
+          <table >
+	          <tr>
+		          <td text-align="right" class="kingakuTxBx"><%= page.kingaku[i] %></td>
+	          </tr>
+          </table>
         </div>
 
         <!-- 料金 -->
