@@ -123,14 +123,14 @@ iraiName {
 /* win-ie用 */
 .win.ie .ketafont {
   font-size: 5mm;
-  letter-spacing: 0.44em;
+  letter-spacing: 0.45em;
   font-family:sans-serif;
 }
 
 /* win-chrome用 */
 .win.chrome .ketafont {
   font-size: 5mm;
-  letter-spacing: 0.44em;
+  letter-spacing: 0.46em;
   font-family:sans-serif;
 }
 
