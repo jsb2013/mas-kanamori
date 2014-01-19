@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/css/tree_diagram" media="screen,print" />
+
+    <title>樹形図</title>
+
+  </head>
+
+  <body>
+
+    <!--ご依頼人の人数でループ -->
+    <%
+   
+
+    // ar[100][100] の2次元配列を作成する
+    ary = new Array(99+1);
+    for (y=0; y<ary.length; y++){
+    ary[y] = new Array(99+1);
+    }
+
+    // その他の変数
+    var x;  // x座標(x配列)
+    var y;  // y座標(y配列)
+      x = 0;
+      y = 0;
+
+    var x_temp;  // 直下階層の幅
+      x_temp = 0;
+    var y_temp;  // 現在階層の深さ
+
+    var x_first;  // 現在の対象の初期位置
+      x_first = 0;
+
+    var parent_flag;  // 親フラグ
+      parent_flag = true;
+
+    var skip_flag; // 上位へ移動後、一つ目の兄弟は幅を持たせる
+      skip_flag = false;
+
+
+
+    // 降順にソート
+    page.data.sort(function(a,b){
+    return(b-a);
+    });
+
+    y = keta(page.data[0]);
+
+
+    // 関係にしたがって位置を計算
+    for(var i=0; i<=4; i++) {
+    //var i;
+    //i = 0;
+
+
+      
+
+        // 階層の深さ(有効ケタ)が変わらない場合（兄弟）
+        if ( y == keta(page.data[i]) && skip_flag == false) {
+          x_temp = x_temp + 1;
+          x = x_first + x_temp;
+        }
+
+
+        // 階層の深さ(有効ケタ)が変わらない場合（親の兄弟）
+        else if ( y == keta(page.data[i]) && skip_flag == true) {
+          x_temp = x_temp + 1;
+          x = x_first + x_temp;
+
+          skip_flag = false;
+        }
+
+        // 階層の深さ(有効ケタ)が上位に変わった場合（親）
+        else if ( y > keta(page.data[i])) {
+          x = x_first + Math.ceil((x_temp + 1 ) / 2);
+          skip_flag = true;
+          x_first = x_temp;
+          x_temp = 0;
+        }
+
+        // 階層の深さ(有効ケタ)が下位に変わった場合（従兄弟,組織の末端）
+        else if ( y < keta(page.data[i])) {
+          x_first = x_temp;
+          x = x_first + 1;
+        }
+
+        y = keta(page.data[i]);
+        ary[x][y] = page.data[i];
+
+
+    }
+
+
+
+    // 階層の深さ(有効ケタ)数計算
+    function keta(a){
+    var str = a.toFixed()
+    var str = str.replace(/0/g, "");
+    var num = Number(str.length);
+    return num;
+    }
+
+
+
+    %>
+
+
+    <p>skip_flag=<%= skip_flag %></p>
+    <p>i=<%= i-1 %></p>
+    <p>x=<%= x %></p>
+    <p>y=<%= y %></p>
+    <p>x_temp=<%= x_temp %></p>
+    <p>x_first=<%= x_first %></p>
+    <p>data=<%= page.data[i-1] %></p>
+
+
+    <table border=1 cellspacing=0 cellpadding=2>
+	    <tr>
+		    <td><%= ary[1][1] %></td>
+		    <td><%= ary[2][1] %></td>
+		    <td><%= ary[3][1] %></td>
+		    <td><%= ary[4][1] %></td>
+		    <td><%= ary[5][1] %></td>
+		    <td><%= ary[6][1] %></td>
+		    <td><%= ary[7][1] %></td>
+		    <td><%= ary[8][1] %></td>
+	    </tr>
+	    <tr>
+		    <td><%= ary[1][2] %></td>
+		    <td><%= ary[2][2] %></td>
+		    <td><%= ary[3][2] %></td>
+		    <td><%= ary[4][2] %></td>
+		    <td><%= ary[5][2] %></td>
+		    <td><%= ary[6][2] %></td>
+		    <td><%= ary[7][2] %></td>
+		    <td><%= ary[8][2] %></td>
+	    </tr>
+	    <tr>
+		    <td><%= ary[1][3] %></td>
+		    <td><%= ary[2][3] %></td>
+		    <td><%= ary[3][3] %></td>
+		    <td><%= ary[4][3] %></td>
+		    <td><%= ary[5][3] %></td>
+		    <td><%= ary[6][3] %></td>
+		    <td><%= ary[7][3] %></td>
+		    <td><%= ary[8][3] %></td>
+	    </tr>
+	    <tr>
+		    <td><%= ary[1][4] %></td>
+		    <td><%= ary[2][4] %></td>
+		    <td><%= ary[3][4] %></td>
+		    <td><%= ary[4][4] %></td>
+		    <td><%= ary[5][4] %></td>
+		    <td><%= ary[6][4] %></td>
+		    <td><%= ary[7][4] %></td>
+		    <td><%= ary[8][4] %></td>
+	    </tr>
+	    <tr>
+		    <td><%= ary[1][5] %></td>
+		    <td><%= ary[2][5] %></td>
+		    <td><%= ary[3][5] %></td>
+		    <td><%= ary[4][5] %></td>
+		    <td><%= ary[5][5] %></td>
+		    <td><%= ary[6][5] %></td>
+		    <td><%= ary[7][5] %></td>
+		    <td><%= ary[8][5] %></td>
+	    </tr>
+	    <tr>
+		    <td><%= ary[1][6] %></td>
+		    <td><%= ary[2][6] %></td>
+		    <td><%= ary[3][6] %></td>
+		    <td><%= ary[4][6] %></td>
+		    <td><%= ary[5][6] %></td>
+		    <td><%= ary[6][6] %></td>
+		    <td><%= ary[7][6] %></td>
+		    <td><%= ary[8][6] %></td>
+	    </tr>
+    </table>
+
+
+  </body>
+</html>
+
