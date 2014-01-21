@@ -36,9 +36,6 @@
       x = 0;
       y = 0;
 
-    var x_offset; // x座標のオフセット
-      x_offset = 0;
-
     var x_temp;  // 直下階層の幅
       x_temp = 0;
     var y_temp;  // 現在階層の深さ
@@ -54,19 +51,25 @@
 
 
     // 関係にしたがって位置を計算
-    for(var i=0; i<=10; i++) {
+    for(var i=0; i<=0; i++) {
 
         // 一番最初
         if ( first_flag == true ) {
           x = 0;
           first_flag = false;
+          
+
           var root = 'first';
         }
 
 
         // 階層の深さ(有効ケタ)が変わらない場合（兄弟）
         else if ( y == keta(page.data[i]) && skip_flag == false) {
+          x_temp = x_temp + 1;
           x = x + 1;
+
+          //x_beforeMAX = x_beforeMAX + x_temp;  //順序？
+
           var root = '階層の深さ(有効ケタ)が変わらない場合（兄弟）';
 
         }
@@ -74,43 +77,59 @@
 
         // 階層の深さ(有効ケタ)が変わらない場合（直近の兄弟,家族が変わる場合）
         else if ( y == keta(page.data[i]) && skip_flag == true) {
-          x = reef_sum(i);
+
+          //x_temp = 0;
+          x = x_beforeMAX;
 
           skip_flag = false;
+
           var root = '階層の深さ(有効ケタ)が変わらない場合（直近の兄弟,家族が変わる場合）';
+
         }
 
         // 階層の深さ(有効ケタ)が上位に変わった場合（親）
         else if ( y > keta(page.data[i])) {
+
+          x_temp = 0;
+          x_temp = x_temp + 1;
+          //x = x_beforeMAX + x_temp; //追加？
+          //x_beforeMAX = x_beforeMAX + x_temp;  //追加？
+
           skip_flag = true;
 
-          var sum = reef_sum(i) - 1 - x_offset;
 
-          // 葉が一枚の時
-          if (sum==1){
-            x = x_offset + 1;
-          // 葉が二枚以上の時
-          } 
-          else{
-            x = x_offset + Math.ceil(( sum ) / 2);      //切り上げ
-          }
-          
+          x = x_beforeMAX + Math.ceil(( page.data_reef[i] - 1 ) / 2);      //切り上げ
+
+          x_beforeMAX = x_beforeMAX + page.data_reef[i];
+
           var root = '階層の深さ(有効ケタ)が上位に変わった場合（親）';
+
         }
 
-        // 階層の深さ(有効ケタ)が下位に変わった場合（親が違う,従兄弟,組織の末端,家族が変わる場合）
+        // 階層の深さ(有効ケタ)が下位に変わった場合（従兄弟,組織の末端,家族が変わる場合）
         else if ( y < keta(page.data[i])) {
-          x_offset = reef_sum(i) - 1;
-          x = 0;
-          x = x_offset + 1;
+          //x_beforeMAX = x_temp;
+          x_temp = 1;
+          x = x_beforeMAX + x_temp;
 
-          var root = '階層の深さ(有効ケタ)が下位に変わった場合（親が違う,従兄弟,組織の末端,家族が変わる場合）';
+
+          var root = '階層の深さ(有効ケタ)が下位に変わった場合（従兄弟,組織の末端）';
 
         }
 
         y = keta(page.data[i]);
         ary[x][y] = page.data[i];
 
+    }
+
+
+
+    // 階層の深さ(有効ケタ)数計算
+    function keta(a){
+    var str = a.toFixed()
+    var str = str.replace(/0/g, "");
+    var num = Number(str.length);
+    return num;
     }
 
 
@@ -123,31 +142,23 @@
     }
 
 
-    // 自分以下の葉の総和
-    function reef_sum(a){
-    var sum = 0;
-    for(var i=0; i<a; i++) {
-      sum = sum + page.reef_flag[i];
-    }
-    return sum;
-    }
-
-
     %>
 
     <p>----next----</p>
     <p>i=<%= i %></p>
     <p>data=<%= page.data[i] %></p>
+    <p>data_ko=<%= page.data_ko[i] %></p>
 
     <p>----now ----</p>
     <p>i=<%= i-1 %></p>
     <p>data=<%= page.data[i-1] %></p>
+    <p>data_ko=<%= page.data_ko[i-1] %></p>
     <p>x=<%= x %></p>
     <p>y=<%= y %></p>
-    <p>x_offset=<%= x_offset %></p>
-    <p>reef_sum=<%= reef_sum(i-1) %></p>
+    <p>x_temp=<%= x_temp %></p>
+    <p>x_beforeMAX=<%= x_beforeMAX %></p>
     <p>skip_flag=<%= skip_flag %></p>
-    <p>reef_flag=<%= page.reef_flag[i-1] %></p>
+    <p>data_reef=<%= page.data_reef[i-1] %></p>
     <p>root=<%= root %><p>
 
 

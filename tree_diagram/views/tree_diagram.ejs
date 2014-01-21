@@ -17,7 +17,7 @@
 
   <body>
 
-    <!--ご依頼人の人数でループ -->
+    <!-- main -->
     <%
    
 
@@ -28,77 +28,90 @@
     }
 
     // その他の変数
+    var sum_ko; // 子供の総和
+      sum_ko = 0;
+
     var x;  // x座標(x配列)
     var y;  // y座標(y配列)
       x = 0;
       y = 0;
 
+    var x_offset; // x座標のオフセット
+      x_offset = 0;
+
     var x_temp;  // 直下階層の幅
       x_temp = 0;
     var y_temp;  // 現在階層の深さ
 
-    var x_first;  // 現在の対象の初期位置
-      x_first = 0;
-
-    var parent_flag;  // 親フラグ
-      parent_flag = true;
+    var x_beforeMAX;  // 現在の対象の初期位置、隣家族との距離（の合計）
+      x_beforeMAX = 0;
 
     var skip_flag; // 上位へ移動後、一つ目の兄弟は幅を持たせる
       skip_flag = false;
 
+    var first_flag = true;
 
-
-    // 降順にソート
-    page.data.sort(function(a,b){
-    return(b-a);
-    });
-
-    y = keta(page.data[0]);
 
 
     // 関係にしたがって位置を計算
-    for(var i=0; i<=4; i++) {
-    //var i;
-    //i = 0;
+    for(var i=0; i<=11; i++) {
 
-
-      
-
-        // 階層の深さ(有効ケタ)が変わらない場合（兄弟）
-        if ( y == keta(page.data[i]) && skip_flag == false) {
-          x_temp = x_temp + 1;
-          x = x_first + x_temp;
+        // 一番最初
+        if ( first_flag == true ) {
+          x = 0;
+          first_flag = false;
+          var root = 'first';
         }
 
 
-        // 階層の深さ(有効ケタ)が変わらない場合（親の兄弟）
+        // 階層の深さ(有効ケタ)が変わらない場合（兄弟）
+        else if ( y == keta(page.data[i]) && skip_flag == false) {
+          x = x + 1;
+          var root = '階層の深さ(有効ケタ)が変わらない場合（兄弟）';
+
+        }
+
+
+        // 階層の深さ(有効ケタ)が変わらない場合（直近の兄弟,家族が変わる場合）
         else if ( y == keta(page.data[i]) && skip_flag == true) {
-          x_temp = x_temp + 1;
-          x = x_first + x_temp;
+          x = reef_sum(i);
 
           skip_flag = false;
+          var root = '階層の深さ(有効ケタ)が変わらない場合（直近の兄弟,家族が変わる場合）';
         }
 
         // 階層の深さ(有効ケタ)が上位に変わった場合（親）
         else if ( y > keta(page.data[i])) {
-          x = x_first + Math.ceil((x_temp + 1 ) / 2);
           skip_flag = true;
-          x_first = x_temp;
-          x_temp = 0;
+
+          var sum = reef_sum(i) - 1 - x_offset;
+
+          // 葉が一枚の時
+          if (sum==1){
+            x = x_offset + 1;
+          // 葉が二枚以上の時
+          } 
+          else{
+            x = x_offset + Math.ceil(( sum ) / 2);      //切り上げ
+          }
+          
+          var root = '階層の深さ(有効ケタ)が上位に変わった場合（親）';
         }
 
-        // 階層の深さ(有効ケタ)が下位に変わった場合（従兄弟,組織の末端）
+        // 階層の深さ(有効ケタ)が下位に変わった場合（親が違う,従兄弟,組織の末端,家族が変わる場合）
         else if ( y < keta(page.data[i])) {
-          x_first = x_temp;
-          x = x_first + 1;
+          x_offset = reef_sum(i) - 1;
+          x = 0;
+          x = x_offset + 1;
+
+          var root = '階層の深さ(有効ケタ)が下位に変わった場合（親が違う,従兄弟,組織の末端,家族が変わる場合）';
+
         }
 
         y = keta(page.data[i]);
         ary[x][y] = page.data[i];
 
-
     }
-
 
 
     // 階層の深さ(有効ケタ)数計算
@@ -110,21 +123,50 @@
     }
 
 
+    // 自分以下の葉の総和
+    function reef_sum(a){
+    var sum = 0;
+    for(var i=0; i<a; i++) {
+      sum = sum + page.reef_flag[i];
+    }
+    return sum;
+    }
+
 
     %>
 
+    <p>----next----</p>
+    <p>i=<%= i %></p>
+    <p>data=<%= page.data[i] %></p>
 
-    <p>skip_flag=<%= skip_flag %></p>
+    <p>----now ----</p>
     <p>i=<%= i-1 %></p>
+    <p>data=<%= page.data[i-1] %></p>
     <p>x=<%= x %></p>
     <p>y=<%= y %></p>
-    <p>x_temp=<%= x_temp %></p>
-    <p>x_first=<%= x_first %></p>
-    <p>data=<%= page.data[i-1] %></p>
+    <p>x_offset=<%= x_offset %></p>
+    <p>reef_sum=<%= reef_sum(i-1) %></p>
+    <p>skip_flag=<%= skip_flag %></p>
+    <p>reef_flag=<%= page.reef_flag[i-1] %></p>
+    <p>root=<%= root %><p>
+
 
 
     <table border=1 cellspacing=0 cellpadding=2>
 	    <tr>
+		    <td><%= ary[0][0] %></td>
+		    <td><%= ary[1][0] %></td>
+		    <td><%= ary[2][0] %></td>
+		    <td><%= ary[3][0] %></td>
+		    <td><%= ary[4][0] %></td>
+		    <td><%= ary[5][0] %></td>
+		    <td><%= ary[6][0] %></td>
+		    <td><%= ary[7][0] %></td>
+		    <td><%= ary[8][0] %></td>
+		    <td><%= ary[9][0] %></td>
+	    </tr>
+	    <tr>
+		    <td><%= ary[0][1] %></td>
 		    <td><%= ary[1][1] %></td>
 		    <td><%= ary[2][1] %></td>
 		    <td><%= ary[3][1] %></td>
@@ -133,8 +175,10 @@
 		    <td><%= ary[6][1] %></td>
 		    <td><%= ary[7][1] %></td>
 		    <td><%= ary[8][1] %></td>
+		    <td><%= ary[9][1] %></td>
 	    </tr>
 	    <tr>
+		    <td><%= ary[0][2] %></td>
 		    <td><%= ary[1][2] %></td>
 		    <td><%= ary[2][2] %></td>
 		    <td><%= ary[3][2] %></td>
@@ -143,8 +187,10 @@
 		    <td><%= ary[6][2] %></td>
 		    <td><%= ary[7][2] %></td>
 		    <td><%= ary[8][2] %></td>
+		    <td><%= ary[9][2] %></td>
 	    </tr>
 	    <tr>
+		    <td><%= ary[0][3] %></td>
 		    <td><%= ary[1][3] %></td>
 		    <td><%= ary[2][3] %></td>
 		    <td><%= ary[3][3] %></td>
@@ -153,8 +199,10 @@
 		    <td><%= ary[6][3] %></td>
 		    <td><%= ary[7][3] %></td>
 		    <td><%= ary[8][3] %></td>
+		    <td><%= ary[9][3] %></td>
 	    </tr>
 	    <tr>
+		    <td><%= ary[0][4] %></td>
 		    <td><%= ary[1][4] %></td>
 		    <td><%= ary[2][4] %></td>
 		    <td><%= ary[3][4] %></td>
@@ -163,8 +211,10 @@
 		    <td><%= ary[6][4] %></td>
 		    <td><%= ary[7][4] %></td>
 		    <td><%= ary[8][4] %></td>
+		    <td><%= ary[9][4] %></td>
 	    </tr>
 	    <tr>
+		    <td><%= ary[0][5] %></td>
 		    <td><%= ary[1][5] %></td>
 		    <td><%= ary[2][5] %></td>
 		    <td><%= ary[3][5] %></td>
@@ -173,8 +223,10 @@
 		    <td><%= ary[6][5] %></td>
 		    <td><%= ary[7][5] %></td>
 		    <td><%= ary[8][5] %></td>
+		    <td><%= ary[9][5] %></td>
 	    </tr>
 	    <tr>
+		    <td><%= ary[0][6] %></td>
 		    <td><%= ary[1][6] %></td>
 		    <td><%= ary[2][6] %></td>
 		    <td><%= ary[3][6] %></td>
@@ -183,6 +235,18 @@
 		    <td><%= ary[6][6] %></td>
 		    <td><%= ary[7][6] %></td>
 		    <td><%= ary[8][6] %></td>
+		    <td><%= ary[9][6] %></td>
+	    </tr>
+		    <td><%= ary[0][7] %></td>
+		    <td><%= ary[1][7] %></td>
+		    <td><%= ary[2][7] %></td>
+		    <td><%= ary[3][7] %></td>
+		    <td><%= ary[4][7] %></td>
+		    <td><%= ary[5][7] %></td>
+		    <td><%= ary[6][7] %></td>
+		    <td><%= ary[7][7] %></td>
+		    <td><%= ary[8][7] %></td>
+		    <td><%= ary[9][7] %></td>
 	    </tr>
     </table>
 
