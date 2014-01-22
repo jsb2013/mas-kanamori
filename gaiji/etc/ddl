@@ -1,0 +1,4 @@
+CREATE TABLE t_sample_text (
+	  id serial, 
+    text            varchar(80)
+);

@@ -1,0 +1,16 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+@font-face {
+  font-family: "myFont";
+  src: url("./font/EUDC.woff") format('woff');
+}
+.myFontClass {
+  font-family: "myFont";
+}

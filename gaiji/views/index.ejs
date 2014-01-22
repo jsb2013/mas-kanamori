@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <title><%= title %></title>
+
+  </head>
+  <body>
+	<form method="post" action="/">
+    <h1><%= title %></h1>
+    <p>--登録されている外字--</p>
+    <p><span class="myFontClass">（読み：外字）</span></p>
+    <p></p>
+    <p>--前回登録された文章--</p>
+    <p><%= res %></p>
+    <p></p>
+    <p>--DB登録する文章--</p>
+    <input type="text" name="bunsyo"/>
+
+		<button type="submit">登録</button>
+	</form>
+  </body>
+</html>
