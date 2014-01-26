@@ -113,21 +113,21 @@ iraiName {
 /* win-ie用 */
 .win.ie .ketafont {
   font-size: 5mm;
-  letter-spacing: 0.45em;
+  letter-spacing: 0.40em;
   font-family:'font_ipa_gos', sans-serif;
 }
 
 /* win-chrome用 */
 .win.chrome .ketafont {
   font-size: 5mm;
-  letter-spacing: 0.46em;
+  letter-spacing: 0.40em;
   font-family:'font_ipa_gos', sans-serif;
 }
 
 /* デフォルト */
 .ketafont {
   font-size: 5mm;
-  letter-spacing: 0.39em;
+  letter-spacing: 0.40em;
   font-family:'font_ipa_gos', sans-serif;
   text-align:right; 
 }

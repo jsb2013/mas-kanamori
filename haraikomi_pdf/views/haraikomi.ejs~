@@ -72,8 +72,8 @@
         </div>
 
         <!-- 金額 -->
-        <div class="text" style="top: 160mm;">
-          <kingaku><u>\<%= String( page.kingaku ).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,' ) %>也</u></kingaku>
+        <div class="text" style="top: 120mm; left: 150mm;">
+          <kingaku><u>￥<%= String( page.kingaku ).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,' ) %>也</u></kingaku>
         </div>
 
         <!-- 口座番号1 -->
@@ -91,27 +91,28 @@
           <kouzaNo3 class="ketafont"><%= page.kouzaNo3[i] %></kouzaNo3>
         </div>
 
+        <!-- 金額 -->
         <div class="textKingakuPosition">
           <table style="border-style:none" width="200px">
 	          <tr>
-		          <td class="ketafont" text-align="right"><%= page.kingaku[i] %></td>
+		          <td class="ketafont" text-align="right"><%= page.kingaku %></td>
 	          </tr>
           </table>
         </div>
 
         <!-- 料金 -->
         <div class="text" style="top: 207mm; left: 95mm;">
-          <ryoukin><%= page.ryoukin[i] %></ryoukin>
+          <ryoukin><%= page.ryoukin %></ryoukin>
         </div>
 
         <!-- 特殊 -->
         <div class="text" style="top: 207mm; left: 118mm;">
-          <tokyusyu><%= page.tokyusyu[i] %></tokyusyu>
+          <tokyusyu><%= page.tokyusyu %></tokyusyu>
         </div>
 
         <!-- 加入者名 -->
         <div class="text" style="top: 206mm; left: 30mm;">
-          <kanyuName><%= page.kanyusyaMei[i] %></kanyuName>
+          <kanyuName><%= page.kanyusyaMei %></kanyuName>
         </div>
 
         <!-- 通信欄 -->
@@ -159,8 +160,6 @@
 
         <!-- 改行 -->
         <div class="page-breaker"></div>
-
-
 
         <!-- 帳票画像(裏) -->
         <div class="backImage">
