@@ -43,45 +43,40 @@ body > div {
 }
 
 
+/* WOFFフォント設定 */
+@font-face {
+  font-family:'font_ipa_min';
+  src: url("/font/ipaexm.woff") format('woff');
+}
+
+@font-face {
+  font-family:'font_ipa_gos';
+  src: url("/font/ipaexg.woff") format('woff');
+}
+
+
 /* 印刷内容の装飾 */
 atena {
   font-size: 4mm;
-  font-family:'Lucida Grande',
-  'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',Meiryo, メイリオ, sans-serif;
+  font-family:'font_ipa_gos', sans-serif;
+}
+
+daimei {
+  font-size: 6mm;
+  font-family:'font_ipa_min', serif;
 }
 
 souhujo {
-  font-size: 6mm;
-  font-family:'Lucida Grande',
-  'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',Meiryo, メイリオ, sans-serif;
-}
-/*
-kouzaNo1 {
   font-size: 5mm;
-  letter-spacing: 0.36em;
-  font-family:sans-serif;
+  font-family:'font_ipa_min',serif;
 }
 
-kouzaNo2 {
-  font-size: 5mm;
-  letter-spacing: 0.36em;
-  font-family:sans-serif;
+kingaku {
+  font-size: 7mm;
+  font-weight: bold;
+  font-family:'font_ipa_min', serif;
 }
 
-kouzaNo3 {
-  font-size: 5mm;
-  letter-spacing: 0.36em;
-  font-family:sans-serif;
-}
-
-.kingakuTxBx {
-  font-size: 5mm;
-  letter-spacing: 0.39em;
-  font-family:sans-serif;
-  text-align:right;
-  background-color: transparent; border: none;
-}
-*/
 ryoukin {
   font-size: 5mm;
   letter-spacing: 0.38em;
@@ -91,32 +86,27 @@ ryoukin {
 tokyusyu {
   font-size: 5mm;
   letter-spacing: 0.38em;
-  font-family:'Lucida Grande',
-  'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',Meiryo, メイリオ, sans-serif;
+  font-family:'font_ipa_gos', sans-serif;
 }
 
 kanyuName {
   font-size: 6mm;
-  font-family:'Lucida Grande',
-  'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',Meiryo, メイリオ, sans-serif;
+  font-family:'font_ipa_gos', sans-serif;
 }
 
 tuusin {
   font-size: 4mm;
-  font-family:'Lucida Grande',
-  'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',Meiryo, メイリオ, sans-serif;
+  font-family:'font_ipa_gos', sans-serif;
 }
 
 iraiJusyo {
   font-size: 2mm;
-  font-family:'Lucida Grande',
-  'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',Meiryo, メイリオ, sans-serif;
+  font-family:'font_ipa_gos', sans-serif;
 }
 
 iraiName {
   font-size: 4mm;
-  font-family:'Lucida Grande',
-  'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',Meiryo, メイリオ, sans-serif;
+  font-family:'font_ipa_gos', sans-serif;
 }
 
 /* ケタ合わせが必要なフィールド群のフォント設定 */
@@ -124,21 +114,21 @@ iraiName {
 .win.ie .ketafont {
   font-size: 5mm;
   letter-spacing: 0.45em;
-  font-family:sans-serif;
+  font-family:'font_ipa_gos', sans-serif;
 }
 
 /* win-chrome用 */
 .win.chrome .ketafont {
   font-size: 5mm;
   letter-spacing: 0.46em;
-  font-family:sans-serif;
+  font-family:'font_ipa_gos', sans-serif;
 }
 
 /* デフォルト */
 .ketafont {
   font-size: 5mm;
   letter-spacing: 0.39em;
-  font-family:sans-serif;
+  font-family:'font_ipa_gos', sans-serif;
   text-align:right; 
 }
 
@@ -153,7 +143,7 @@ iraiName {
 .win.ie .textGoiraiKingakuPosition {
   position: absolute;
   top: 228mm;
-  left: 140mm;
+  left: 141mm;
 }
 
 /* win-chrome用位置調整 */
@@ -166,7 +156,7 @@ iraiName {
 .win.chrome .textGoiraiKingakuPosition {
   position: absolute;
   top: 228mm;
-  left: 140mm;
+  left: 141mm;
 }
 
 /* mac-chrome用位置調整 */
@@ -179,7 +169,7 @@ iraiName {
 .mac.chrome .textGoiraiKingakuPosition {
   position: absolute;
   top: 228mm;
-  left: 140mm;
+  left: 141mm;
 }
 
 /* chrome用位置調整 */
@@ -192,7 +182,7 @@ iraiName {
 .chrome .textGoiraiKingakuPosition {
   position: absolute;
   top: 228mm;
-  left: 140mm;
+  left: 141mm;
 }
 
 /* firefox用位置調整 */
@@ -205,6 +195,6 @@ iraiName {
 .gecko .textGoiraiKingakuPosition {
   position: absolute;
   top: 228mm;
-  left: 140mm;
+  left: 141mm;
 }
 

@@ -31,29 +31,49 @@
           <img src="/img/haraikomi_hyou.jpg" width=99%;>
         </div>
 
+        <div class="text" style="top: 5mm; left: 15mm;">
+
+          <table style="border: 1px solid #595959;">
+	          <tr>
+		          <td width="350" height="130"></td>
+	          </tr>
+          </table>
+
+        </div>
+
         <!-- 封筒窓_郵便番号 -->
-        <div class="text" style="top: 10mm; left: 10mm;">
+        <div class="text" style="top: 10mm; left: 20mm;">
           <atena><%= page.goiraiYubin[i] %></atena>
         </div>
 
         <!-- 封筒窓_住所1 -->
-        <div class="text" style="top: 15mm; left: 10mm;">
+        <div class="text" style="top: 15mm; left: 20mm;">
           <atena><%= page.goiraiJusyo1[i] %></atena>
         </div>
 
         <!-- 封筒窓_住所2 -->
-        <div class="text" style="top: 20mm; left: 10mm;">
+        <div class="text" style="top: 20mm; left: 20mm;">
           <atena><%= page.goiraiJusyo2[i] %></atena>
         </div>
 
         <!-- 封筒窓_宛名 -->
-        <div class="text" style="top: 30mm; left: 10mm;">
+        <div class="text" style="top: 30mm; left: 20mm;">
           <atena><%= page.goiraiMei[i] %>様</atena>
         </div>
 
+        <!-- 題名 -->
+        <div class="text" style="top: 80mm; left: 20mm;">
+          <daimei><%= page.daimei %></daimei>
+        </div>
+
         <!-- 送付状 -->
-        <div class="text" style="top: 80mm; left: 10mm;">
-          <souhujo>好きな挨拶を入れる。</souhujo>
+        <div class="text" style="top: 95mm; left: 20mm; width: 660px; word-wrap: break-word;">
+          <souhujo><%= page.souhujo %></souhujo>
+        </div>
+
+        <!-- 金額 -->
+        <div class="text" style="top: 160mm;">
+          <kingaku><u>\<%= String( page.kingaku ).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,' ) %>也</u></kingaku>
         </div>
 
         <!-- 口座番号1 -->
@@ -70,11 +90,6 @@
         <div class="text" style="top: 197mm; left: 55mm;">
           <kouzaNo3 class="ketafont"><%= page.kouzaNo3[i] %></kouzaNo3>
         </div>
-
-        <!-- 金額 -->
-        <!--<div class="textKingakuPosition">
-          <INPUT type="text" class="kingakuTxBx" readonly value="<%= page.kingaku[i] %>" name="hoge">
-        </div>-->
 
         <div class="textKingakuPosition">
           <table style="border-style:none" width="200px">
@@ -100,8 +115,8 @@
         </div>
 
         <!-- 通信欄 -->
-        <div class="text" style="top: 216mm; left: 30mm;">
-          <tuusin><%= page.tusinRan[i] %></tuusin>
+        <div class="text" style="top: 216mm; left: 30mm; width: 380px; word-wrap: break-word;">
+          <tuusin><%= page.tusinRan %></tuusin>
         </div>
 
         <!-- ご依頼人_郵便番号 -->
@@ -129,9 +144,12 @@
           <iraiJusyo><%= page.goiraiTel[i] %></iraiJusyo>
         </div>
 
-        <!-- 受領_金額（表示位置はcssで指定） -->
         <div class="textGoiraiKingakuPosition">
-          <INPUT type="text" class="kingakuTxBx" readonly value="<%= page.kingaku[i] %>" name="hoge">
+          <table style="border-style:none" width="200px">
+	          <tr>
+		          <td class="ketafont" text-align="right"><%= page.kingaku %></td>
+	          </tr>
+          </table>
         </div>
 
         <!-- 受領_ご依頼人_名 -->

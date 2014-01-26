@@ -9,7 +9,8 @@ a {
 
 @font-face {
   font-family: "myFont";
-  src: url("./font/EUDC.woff") format('woff');
+  /*src: url("/font/EUDC.woff") format('woff');*/
+  src: url("/font/ipaexm.woff") format('woff');
 }
 .myFontClass {
   font-family: "myFont";
