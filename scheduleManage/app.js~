@@ -44,7 +44,7 @@ if ('development' == app.get('env')) {
 // 1.ログイン画面
 app.get('/login', routes.login);
 //app.post('/login', routes.loginpost);
-
+/Users/hotelmarimo/node.js/mas-kanamori/scheduleManage/routes/index.js
 // 2.ユーザ登録画面
 //app.get('/create', routes.create);
 //app.post('/create', routes.createpost);

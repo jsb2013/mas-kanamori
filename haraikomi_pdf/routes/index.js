@@ -3,6 +3,9 @@
  * GET home page.
  */
 
+
+
+
 // 払込取扱票の処理を行う
 exports.index = function (req, res) {
   //テストデータ。本番は配列を渡せばOK。印刷数はgoiraiMeiの配列数に依存(キー)。
